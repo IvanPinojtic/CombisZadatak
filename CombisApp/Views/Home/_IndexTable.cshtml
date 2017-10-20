@@ -1,0 +1,47 @@
+﻿@model List<CombisApp.Model.Podaci>
+
+<table class="table">
+    <tr>
+        <th>
+            Ime
+        </th>
+        <th>
+            Prezime
+        </th>
+        <th>
+            PostanskiBroj
+        </th>
+        <th>
+            Grad
+        </th>
+        <th>
+            Telefon
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        int res;
+        string style = !int.TryParse(item.PostanskiBroj, out res) ? "background-color:red" : null;
+
+            <tr style="@style">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostanskiBroj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+            </tr>
+    }
+
+</table>
+

@@ -1,0 +1,25 @@
+﻿@model List<CombisApp.Model.Podaci>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <button type="button" id="ucitaj" class="btn btn-default submit-button">Učitaj</button>
+    <button type="button" id="spremi" class="btn btn-default submit-button">Spremi</button>
+</div>
+
+
+<div id="tabl"></div>
+
+@section scripts{
+    <script type="text/javascript">
+
+        $("#ucitaj").on("click", function () {
+            $("#tabl").load('@Url.Action("Table","Home")');
+        });
+        $("#spremi").on("click", function () {
+            $("#tabl").load('@Url.Action("SaveAll","Home")');
+        });
+
+</script>
+}
